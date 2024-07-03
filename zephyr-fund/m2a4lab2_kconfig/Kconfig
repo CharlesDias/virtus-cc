@@ -1,0 +1,19 @@
+menu "Example Configuration"
+
+config EXAMPLE_BOOL
+    bool "Example boolean variable"
+    default n
+    help
+      This is an example boolean variable. It can be enabled or disabled.
+
+config EXAMPLE_INT
+    int "Example integer variable"
+    default 50
+    range 0 100
+    help
+      This is an example integer variable with a default value of 42.
+      It can be set to any value between 0 and 100.
+
+endmenu
+
+source "Kconfig.zephyr"
