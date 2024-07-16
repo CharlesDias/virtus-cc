@@ -1,0 +1,26 @@
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+/ {
+	aliases {
+		led0 = &led0;
+		sw0 = &button0;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		led0: led0 {
+			label = "LED0";
+			gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+		};
+	};
+
+	buttons: buttons {
+		compatible = "gpio-keys";
+
+		button0 {
+			label = "BUTTON0";
+			gpios = <&gpio0 0 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>;
+			zephyr,code = <INPUT_KEY_A>;
+		};
+	};
+};
