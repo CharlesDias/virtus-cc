@@ -1,0 +1,54 @@
+# Config options for mqtt_publisher sample application
+
+# Copyright (c) 2020 Intel Corporation
+# Copyright (c) 2024 Charles Dias, VIRTUS/UFCG
+# SPDX-License-Identifier: Apache-2.0
+
+mainmenu "Networking mqtt_publisher sample application"
+
+config ETHERNET_INIT_WAIT_TIME
+	int "Ethernet initialization wait time (in seconds)"
+	default 1
+	help
+	  Time to wait for the Ethernet initialization to complete before
+	  starting the MQTT connection.
+
+config MQTT_CLIENT_ID
+	string "MQTT client ID"
+	default "zephyr_mqtt"
+	help
+	  MQTT client ID to use when connecting to the broker.
+
+config MQTT_BROKER_HOSTNAME
+	string "MQTT broker hostname"
+	default ""
+	help
+	  Hostname of the MQTT broker to connect to.
+
+config MQTT_BROKER_PORT
+	int "MQTT broker port"
+	default 1883
+	help
+	  Port number of the MQTT broker to connect to.
+
+config MQTT_PUB_TOPIC
+	string "MQTT publish topic"
+	default "casa12/info"
+	help
+	  MQTT topic to publish messages to.
+
+config MQTT_SUB_TOPIC
+	string "MQTT subscribe topic"
+	default "casa12/sala/porta"
+	help
+	  MQTT topic to subscribe to.
+
+config NET_SAMPLE_APP_MAX_ITERATIONS
+	int "Number of times to Publish sample MQTT messages"
+	default 500
+	help
+	  Send sample MQTT messages this many times in a MQTT connection
+	  before exiting. A value of zero means that the messages are sent
+	  forever.
+
+source "Kconfig.zephyr"
