@@ -1,0 +1,20 @@
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+/ {
+	aliases {
+		led0 = &led0;
+		led1 = &led1;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		led0: led0 {
+			label = "LED0";
+			gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+		};
+		led1: led1 {
+			label = "LED1";
+			gpios = <&gpio0 3 GPIO_ACTIVE_HIGH>;
+		};
+	};
+};
